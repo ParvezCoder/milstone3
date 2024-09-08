@@ -13,6 +13,28 @@ interface ResumeData {
 }
 
 const Resume = () => {
+  const validateForm = () => {
+    const missingFields = [];
+    if (!resumeData.name) missingFields.push("Name");
+    if (!resumeData.email) missingFields.push("Email");
+    if (!resumeData.phone) missingFields.push("Phone");
+    if (!resumeData.nationality) missingFields.push("Nationality");
+    if (!resumeData.religion) missingFields.push("Religion");
+    if (!resumeData.education) missingFields.push("Education");
+    if (!resumeData.experience) missingFields.push("Experience");
+
+    return missingFields;
+  };
+
+  const handleCreateResume = () => {
+    const missingFields = validateForm();
+    if (missingFields.length > 0) {
+      alert(`Please fill the following fields: ${missingFields.join(", ")}`);
+    } else {
+      alert("Resume created successfully!");
+    }
+  };
+
   const [resumeData, setResumeData] = useState<ResumeData>({
     name: '',
     email: '',
@@ -182,7 +204,7 @@ const Resume = () => {
           </div>
 
           <div className="flex justify-center mt-16">
-            <button className="text-2xl hover:bg-red-500 text-white flex justify-center border-4 p-1 bg-red-500 rounded-xl">
+            <button onClick={handleCreateResume} className="text-2xl hover:bg-red-500 text-white flex justify-center border-4 p-1 bg-red-500 rounded-xl">
               Create resume
             </button>
           </div>
