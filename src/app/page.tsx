@@ -68,6 +68,7 @@ const Resume = () => {
               <input
                 type="email"
                 name="email"
+                required
                 value={resumeData.email}
                 onChange={handleInputChange}
                 className="p-1 rounded-3xl w-36"
@@ -77,6 +78,8 @@ const Resume = () => {
             <div className="flex justify-between items-center mb-2 space-x-2">
               <label className="p-1 text-xl w-28 text-center rounded-2xl bg-white text-black">Phone:</label>
               <input
+                
+                required
                 type="text"
                 name="phone"
                 value={resumeData.phone}
@@ -88,6 +91,7 @@ const Resume = () => {
             <div className="flex items-center mb-2 justify-between space-x-2">
               <label className="p-1 text-xl w-28 text-center rounded-2xl bg-white text-black">Nationality:</label>
               <input
+                required
                 type="text"
                 name="nationality"
                 value={resumeData.nationality}
@@ -99,6 +103,7 @@ const Resume = () => {
             <div className="flex items-center mb-2 justify-between space-x-2">
               <label className="p-1 text-xl w-28 text-center rounded-2xl bg-white text-black">Religion:</label>
               <input
+                required
                 type="text"
                 name="religion"
                 value={resumeData.religion}
@@ -116,6 +121,7 @@ const Resume = () => {
             <div className="flex items-center justify-between space-x-2 mb-2">
               <label className="p-1 text-xl w-28 text-center rounded-2xl bg-white text-black">Education:</label>
               <input
+                required
                 type="text"
                 name="education"
                 value={resumeData.education}
@@ -133,6 +139,7 @@ const Resume = () => {
 
              
               <input
+                required
                 type="text"
                 value={newSkill}
                 onChange={(e) => setNewSkill(e.target.value)}
