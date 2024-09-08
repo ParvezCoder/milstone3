@@ -7,7 +7,6 @@ interface ResumeData {
   phone: string;
   nationality: string;
   religion: string;
-  linkedin: string;
   education: string;
   skills: string[]; // Explicitly setting skills as an array of strings
   experience: string;
@@ -20,13 +19,12 @@ const Resume = () => {
     phone: '',
     nationality: '',
     religion: '',
-    linkedin: '',
     education: '',
     skills: [], // Initialize as an empty string array
     experience: '',
   });
-   const [newSkill, setNewSkill] = useState('');
-   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const [newSkill, setNewSkill] = useState('');
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setResumeData({
       ...resumeData,
@@ -54,85 +52,75 @@ const Resume = () => {
 
             {/* Input field group with label */}
             <div className="flex justify-between space-x-2 items-center mb-2">
-              <label className="p-1 px-4 rounded-2xl bg-white text-black">Name:</label>
+              <label className="p-1 text-xl w-28 text-center rounded-2xl bg-white text-black">Name:</label>
               <input
                 type="text"
                 required
                 name="name"
                 value={resumeData.name}
                 onChange={handleInputChange}
-                className="p-1 rounded-3xl"
+                className="p-1 rounded-3xl w-36"
               />
             </div>
 
             <div className="flex space-x-2 items-center mb-2 justify-between">
-              <label className="p-1 px-4 rounded-2xl bg-white text-black">Email:</label>
+              <label className="p-1 text-xl w-28 text-center rounded-2xl bg-white text-black">Email:</label>
               <input
                 type="email"
                 name="email"
                 value={resumeData.email}
                 onChange={handleInputChange}
-                className="p-1 rounded-3xl"
+                className="p-1 rounded-3xl w-36"
               />
             </div>
 
             <div className="flex justify-between items-center mb-2 space-x-2">
-              <label className="p-1 px-4 rounded-2xl bg-white text-black">Phone:</label>
+              <label className="p-1 text-xl w-28 text-center rounded-2xl bg-white text-black">Phone:</label>
               <input
                 type="text"
                 name="phone"
                 value={resumeData.phone}
                 onChange={handleInputChange}
-                className="p-1 rounded-3xl"
+                className="p-1 rounded-3xl w-36"
               />
             </div>
 
             <div className="flex items-center mb-2 justify-between space-x-2">
-              <label className="p-1 px-4 rounded-2xl bg-white text-black">Nationality:</label>
+              <label className="p-1 text-xl w-28 text-center rounded-2xl bg-white text-black">Nationality:</label>
               <input
                 type="text"
                 name="nationality"
                 value={resumeData.nationality}
                 onChange={handleInputChange}
-                className="p-1 rounded-3xl"
+                className="p-1 rounded-3xl w-36"
               />
             </div>
 
             <div className="flex items-center mb-2 justify-between space-x-2">
-              <label className="p-1 px-4 rounded-2xl bg-white text-black">Religion:</label>
+              <label className="p-1 text-xl w-28 text-center rounded-2xl bg-white text-black">Religion:</label>
               <input
                 type="text"
                 name="religion"
                 value={resumeData.religion}
                 onChange={handleInputChange}
-                className="p-1 rounded-3xl"
+                className="p-1 rounded-3xl w-36"
               />
             </div>
 
-            <div className="flex items-center mb-2 justify-between space-x-2">
-              <label className="p-1 px-4 rounded-2xl bg-white text-black">LinkedIn:</label>
-              <input
-                type="text"
-                name="linkedin"
-                value={resumeData.linkedin}
-                onChange={handleInputChange}
-                className="p-1 rounded-3xl"
-              />
-            </div>
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 mt-10">
             <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center">
               <span className='border-b-4 border-red-600'>Education</span>
             </h2>
             <div className="flex items-center justify-between space-x-2 mb-2">
-              <label className="p-1 px-4 rounded-2xl bg-white text-black">Education:</label>
+              <label className="p-1 text-xl w-28 text-center rounded-2xl bg-white text-black">Education:</label>
               <input
                 type="text"
                 name="education"
                 value={resumeData.education}
                 onChange={handleInputChange}
-                className="p-1 rounded-3xl"
+                className="p-1 rounded-3xl w-36"
               />
             </div>
           </div>
@@ -141,25 +129,27 @@ const Resume = () => {
             <h2 className="text-center text-2xl font-bold text-blue-800 mb-4">
               <span className='border-b-4 border-red-600'>Skills</span>
             </h2>
-            <div className="flex items-center mb-2">
+            <div className="flex items-center justify-between space-x-2 mb-2">
+
+             
               <input
                 type="text"
                 value={newSkill}
                 onChange={(e) => setNewSkill(e.target.value)}
                 placeholder="Add Skill"
-                className="p-2 flex-1"
+                className="p-1 rounded-3xl w-36"
               />
-              <button
-                className="ml-2 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+               <button
+                className="p-1 text-xl w-28 text-center rounded-2xl bg-blue-500 text-black "
                 onClick={handleSkillAdd}
               >
                 Add Skill
               </button>
             </div>
-            <ul className="mt-4 flex">
+            <ul className="mt-4 flex ">
               {resumeData.skills.map((skill, index) => (
-                <li key={index} className='px-4 py-2 flex flex-row'>
-                  <span className="text-white bg-red-700 flex flex-row rounded-lg px-4 py-2">
+                <li key={index} className='px-4 max-w-20 py-2 flex flex-row'>
+                  <span className="text-white bg-red-700 flex flex-row rounded-lg px-4  py-1">
                     {skill}
                   </span>
                 </li>
@@ -172,14 +162,14 @@ const Resume = () => {
               <span className='border-b-4 border-red-600'>Work Experience</span>
             </h2>
             <div className="flex items-center justify-between space-x-2 mb-2">
-              <label className="p-2 px-4 rounded-2xl font-semibold bg-white text-black">
+              <label className="p-1  w-28 text-center rounded-2xl bg-white text-black">
                 Experience:
               </label>
               <textarea
                 name="experience"
                 value={resumeData.experience}
                 onChange={handleInputChange}
-                className="text-center items-center flex justify-center rounded-3xl"
+                className=" rounded-3xl h-8 w-36"
               />
             </div>
           </div>
@@ -203,9 +193,7 @@ const Resume = () => {
             <p>Phone: {resumeData.phone}</p>
             <p>Nationality: {resumeData.nationality}</p>
             <p>Religion: {resumeData.religion}</p>
-            <p>
-              LinkedIn: <a href={resumeData.linkedin} className="text-red-500">{resumeData.linkedin}</a>
-            </p>
+
           </div>
         </section>
 
