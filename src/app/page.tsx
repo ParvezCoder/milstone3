@@ -125,7 +125,7 @@ const Resume = () => {
             </div>
           </div>
 
-          <div className="mb-4">
+          <div className="mt-10">
             <h2 className="text-center text-2xl font-bold text-blue-800 mb-4">
               <span className='border-b-4 border-red-600'>Skills</span>
             </h2>
@@ -146,7 +146,7 @@ const Resume = () => {
                 Add Skill
               </button>
             </div>
-            <ul className="mt-4 flex ">
+            <ul className=" flex ">
               {resumeData.skills.map((skill, index) => (
                 <li key={index} className='px-4 max-w-20 py-2 flex flex-row'>
                   <span className="text-white bg-red-700 flex flex-row rounded-lg px-4  py-1">
@@ -157,7 +157,7 @@ const Resume = () => {
             </ul>
           </div>
 
-          <div className="mb-4">
+          <div className="mt-10">
             <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center">
               <span className='border-b-4 border-red-600'>Work Experience</span>
             </h2>
@@ -174,7 +174,7 @@ const Resume = () => {
             </div>
           </div>
 
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-16">
             <button className="text-2xl hover:bg-red-500 text-white flex justify-center border-4 p-1 bg-red-500 rounded-xl">
               Create resume
             </button>
